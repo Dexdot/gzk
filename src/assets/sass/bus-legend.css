@@ -34,3 +34,9 @@
   background: rgba(104, 147, 198, 0.1);
   border: 1.5px solid rgba(104, 147, 198, 0.3);
 }
+
+@media (max-width: 991px) {
+  .bus-legend {
+    justify-content: center;
+  }
+}

@@ -41,7 +41,7 @@ block content
                     ul
                       - for (var j = 21; j <= 24; j++)
                         li
-                          button.bus-place(type="button")
+                          button.bus-place.js-place-select(type="button")
                             .bus-place__text Свободное место
                             p.bus-place__num= j
 
@@ -61,7 +61,6 @@ block content
                     } type="button")
                       .bus-place__text= text
                       p.bus-place__num= num
-
 
         +bus-row
 
