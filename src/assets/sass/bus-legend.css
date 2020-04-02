@@ -1,0 +1,36 @@
+.bus-legend {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px -24px;
+}
+
+.bus-legend > li {
+  margin-left: 24px;
+}
+
+.bus-legend,
+.bus-legend__item {
+  display: flex;
+  align-items: center;
+}
+
+.bus-legend__item {
+  font-size: 14px;
+}
+
+.bus-legend__rect {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  border-radius: 2px;
+}
+
+.bus-legend__item--taken .bus-legend__rect {
+  background: #6893c6;
+  border: rgba(104, 147, 198, 0.3);
+}
+
+.bus-legend__item--free .bus-legend__rect {
+  background: rgba(104, 147, 198, 0.1);
+  border: 1.5px solid rgba(104, 147, 198, 0.3);
+}
