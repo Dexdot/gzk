@@ -2,6 +2,24 @@
   margin: 16px 0;
 }
 
+.bus-bold {
+  font-weight: 600;
+  font-size: 13px;
+  color: #556e8b;
+}
+
+.bus-row-num {
+  font-weight: 600;
+}
+
+.bus-row-num,
+.bus-label {
+  font-size: 12px;
+  color: #556e8b;
+  margin: 0;
+  padding: 0;
+}
+
 .bus-content {
   display: flex;
   height: 252px;
@@ -30,10 +48,6 @@
 }
 
 .bus-head__text {
-  font-weight: 600;
-  font-size: 13px;
-  color: #556e8b;
-
   writing-mode: vertical-lr;
   transform: scale(-1);
 }
@@ -62,11 +76,6 @@
 }
 
 .bus-door {
-  font-weight: 600;
-  font-size: 13px;
-  line-height: 30px;
-  color: #556e8b;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -100,6 +109,7 @@
 .bus-door p {
   margin: 0;
   padding: 0;
+  line-height: 30px;
 }
 
 .bus-place {
@@ -195,14 +205,23 @@
   list-style: none;
 
   display: flex;
+  margin-left: -12px;
 }
 
-.bus-row-num {
-  font-weight: 600;
+.bus-row > li {
+  margin-left: 12px;
+  width: 45px;
+
+  text-align: center;
 }
 
-.bus-row-num,
-.bus-label {
-  font-size: 12px;
-  color: #556e8b;
+.bus-row > li:first-child {
+  width: 64px;
+}
+
+.bus-row:first-child {
+  padding-bottom: 8px;
+}
+.bus-row:last-child {
+  padding-top: 8px;
 }

@@ -23,9 +23,9 @@ block content
         .bus-content
           .bus-head
             .bus-head__item
-              span.bus-head__text Дверь
+              span.bus-head__text.bus-bold Дверь
             .bus-head__item
-              span.bus-head__text Водитель
+              span.bus-head__text.bus-bold Водитель
 
           .bus-body
             ul.bus-places
@@ -35,8 +35,8 @@ block content
                 if isDoor
                   li.bus-places-item--door
                     .bus-door
-                      p Дверь
-                      p Кухня
+                      p.bus-bold Дверь
+                      p.bus-bold Кухня
 
                     ul
                       - for (var j = 21; j <= 24; j++)
@@ -55,7 +55,7 @@ block content
                       var isDoorSkipped = i > 19;
                       var num = isDoorSkipped ? i + 4 : i + 1;
 
-                    button.bus-place(class={
+                    button.bus-place.js-place-select(class={
                       'bus-place--taken': isTaken,
                       'bus-place--small': isSmall,
                     } type="button")
