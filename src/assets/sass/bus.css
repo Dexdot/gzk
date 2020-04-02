@@ -53,6 +53,7 @@
   flex-direction: column-reverse;
   justify-content: space-between;
   height: 100%;
+  /* width: 732px; */
 
   margin-left: -12px;
 }
@@ -73,9 +74,27 @@
 
   width: 102px;
   height: 102px;
+  margin-bottom: 11px;
 
   border-left: 1px solid #556e8b;
   border-right: 1px solid #556e8b;
+}
+
+.bus-places-item--door ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-left: -12px;
+  height: 101px;
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+}
+
+.bus-places-item--door ul > li {
+  margin-left: 12px;
 }
 
 .bus-door p {
@@ -89,14 +108,15 @@
   min-width: 45px;
   width: 45px;
   height: 45px;
-  line-height: 45px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
+  margin: 0;
   padding: 0;
   outline: 0;
+
   background: rgba(104, 147, 198, 0.1);
   border: 1px solid rgba(104, 147, 198, 0.3);
   border-radius: 6px;
@@ -139,7 +159,6 @@
 
 .bus-place--small {
   height: 35px;
-  line-height: 35px;
 }
 
 .bus-place__text {

@@ -29,29 +29,37 @@ block content
 
           .bus-body
             ul.bus-places
-              - for (var i = 0; i < 50; i++)
-                - var isDoor = i === 22;
+              - for (var i = 0; i < 46; i++)
+                - var isDoor = i === 20;
 
                 if isDoor
-                  li
+                  li.bus-places-item--door
                     .bus-door
                       p Дверь
                       p Кухня
 
+                    ul
+                      - for (var j = 21; j <= 24; j++)
+                        li
+                          button.bus-place(type="button")
+                            .bus-place__text Свободное место
+                            p.bus-place__num= j
+
                 else
                   li
                     -
+                      var isSmall = i >= 41;
                       var isTaken = [4, 5].includes(i);
                       var text = isTaken ? 'Занятое место' : 'Свободное место';
-                      var isDoorSkipped = i > 22;
-                      var num = isDoorSkipped ? i : i + 1;
-                      var isSmall = i >= 45;
+
+                      var isDoorSkipped = i > 19;
+                      var num = isDoorSkipped ? i + 4 : i + 1;
 
                     button.bus-place(class={
                       'bus-place--taken': isTaken,
                       'bus-place--small': isSmall,
                     } type="button")
-                      p.bus-place__text= text
+                      .bus-place__text= text
                       p.bus-place__num= num
 
 
