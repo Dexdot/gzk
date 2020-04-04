@@ -1,0 +1,38 @@
+@media (max-width: 991px) {
+  .calendars-row {
+    margin-bottom: 32px;
+  }
+
+  .calendars-row .calendar-container:not(:first-child) {
+    display: none;
+  }
+
+  .calendar-container {
+    border: 1px solid #ebebeb;
+    padding: 16px;
+    width: 342px;
+    margin: 0 auto;
+  }
+
+  .calendar {
+    width: 100%;
+    max-width: 310px;
+  }
+
+  .calendar-head,
+  .calendar-head--right {
+    justify-content: space-between;
+  }
+
+  .calendar-week > li {
+    min-width: 40px;
+    width: 40px;
+  }
+
+  .calendar-day {
+    min-width: 40px;
+    width: 40px;
+    height: 40px;
+    font-size: 11px;
+  }
+}

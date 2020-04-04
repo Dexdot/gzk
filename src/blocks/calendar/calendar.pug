@@ -1,11 +1,14 @@
-.container
-  h2.title Доступность
-
+mixin calendar({ isRight, monthName, daysCount, placeholdersCount })
   section.calendar-container
     .calendar
-      .calendar-head
+      .calendar-head(class={ 'calendar-head--right': isRight })
         button.calendar-btn(type="button")
-          
+          img(src="assets/img/arrow.svg" alt="Назад")
+
+        .calendar-head__title= monthName
+
+        button.calendar-btn(type="button")
+          img(src="assets/img/arrow.svg" alt="Вперед")
 
       .calendar-body
         ul.calendar-week
@@ -14,12 +17,40 @@
               p.calendar-week__text= day
 
         ul.calendar-days
-          - for (var i = 0; i < 1; i++)
+          - for (var i = 0; i < placeholdersCount; i++)
             li.calendar-placeholder
+              label.calendar-day
 
-          - for (var i = 0; i < 31; i++)
+          - for (var i = 0; i < daysCount; i++)
             li
+              -
+                var isTaken = i > 10 && i < 20;
+                var num = i + 1;
+
+              label.calendar-day(class={
+                'calendar-day--taken': isTaken
+              })
+                input.js-day-select(disabled=isTaken value=num type="checkbox")
+                p.calendar-day__num= num
             
+
+
+.container
+  h2.title Доступность
+
+  .calendars-row
+    +calendar({
+      isRight: false,
+      monthName: 'Март 2020 г.',
+      daysCount: 31,
+      placeholdersCount: 1
+    })
+    +calendar({
+      isRight: true,
+      monthName: 'Апрель 2020 г.',
+      daysCount: 31,
+      placeholdersCount: 5
+    })
 
     
   button.calendar-clear Очистить даты

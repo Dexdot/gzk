@@ -1,0 +1,164 @@
+.calendar-head {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.calendar-head--right {
+  justify-content: flex-end;
+}
+
+.calendar-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+  background: #f8f8f8;
+  border: 1px solid #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+.calendar-btn img {
+  width: 14px;
+  height: auto;
+}
+
+.calendar-btn:last-child img {
+  transform: scale(-1, 1);
+}
+
+.calendar-head__title {
+  margin: 0 24px;
+
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.calendar-days,
+.calendar-week {
+  list-style: none;
+  padding: 0;
+}
+
+.calendar-week {
+  display: flex;
+  align-items: center;
+  margin: 0 0 8px -4px;
+}
+
+.calendar-week > li {
+  text-align: center;
+  margin-left: 4px;
+}
+
+.calendar-week__text {
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 1;
+  text-align: center;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #333333;
+  opacity: 0.5;
+
+  margin: 0;
+}
+
+.calendar-days {
+  display: flex;
+  flex-wrap: wrap;
+
+  margin: -4px 0 0 -4px;
+}
+
+.calendar-days > li {
+  margin-left: 4px;
+  margin-top: 4px;
+}
+
+.calendar-placeholder {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+  z-index: -1;
+}
+
+.calendar-day {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 55px;
+  width: 55px;
+  height: 55px;
+
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1;
+
+  transition: background 0.25s ease;
+  border-radius: 50%;
+  background: rgba(104, 147, 198, 0.1);
+  color: #6893c6;
+}
+
+.calendar-day input {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  cursor: pointer;
+  opacity: 0;
+
+  background: 0;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.calendar-day--taken {
+  pointer-events: none;
+
+  color: #bfbfbf;
+  background-image: linear-gradient(
+    135deg,
+    #e3e4e7 10%,
+    #ffffff 10%,
+    #ffffff 50%,
+    #e3e4e7 50%,
+    #e3e4e7 60%,
+    #ffffff 60%,
+    #ffffff 100%
+  );
+  background-size: 7.07px 7.07px;
+}
+
+.calendar-day--selected {
+  background: #6893c6;
+  color: #fff;
+}
+
+.calendar-clear {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: 0;
+
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1;
+  color: #45559e;
+}

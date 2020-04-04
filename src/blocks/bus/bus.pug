@@ -47,7 +47,7 @@ mixin bus-row
                   ul
                     - for (var j = 21; j <= 24; j++)
                       li
-                        label.bus-place(type="button")
+                        label.bus-place
                           input.js-place-select(value=num type="checkbox")
                           .bus-place__text Свободное место
                           p.bus-place__num= j
@@ -64,9 +64,9 @@ mixin bus-row
 
                   label.bus-place(class={
                     'bus-place--taken': isTaken,
-                    'bus-place--small': isSmall,
-                  } type="button")
-                    input.js-place-select(value=num type="checkbox")
+                    'bus-place--small': isSmall
+                  })
+                    input.js-place-select(disabled=isTaken value=num type="checkbox")
                     .bus-place__text= text
                     p.bus-place__num= num
 
