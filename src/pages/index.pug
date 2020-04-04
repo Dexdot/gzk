@@ -1,3 +1,76 @@
 extends ../templates/template.pug
 block content
-  
+
+  -
+    var controlsList = [
+      '-30',
+      '-7',
+      'Сегодня',
+      '+30',
+      '+7'
+    ];
+
+    var nav = [
+      { text: 'Мой профиль' },
+      { text: 'Сообщения', num: 23 },
+      { text: 'Мои номера', num: 3 },
+      { text: 'Избранное' },
+      { text: 'Статистика' },
+      { text: 'Доска заказов', active: true },
+      { text: 'Выход' },
+    ];
+
+    var roomTypes = [
+      'Стандарт',
+      'Люкс',
+      'Полулюкс',
+      'Президентский',
+      'Стандарт 2',
+      'Стандарт 3',
+      'Стандарт 4',
+      'Стандарт 5'
+    ];
+
+  .orders-page
+    aside.orders-aside
+      nav.nav
+        ul
+          each link in nav
+            li
+              a(class={ 'nav__link--active': link.active } href="#").nav__link
+                span.nav__link-text= link.text
+                if link.num
+                  span.nav__link-num= link.num
+
+    .orders-container
+      h2.orders-title Доска заказов
+
+      ul.orders-controls
+        each control in controlsList
+          li
+            label.orders-control
+              input(type="button")
+              span.orders-control__text= control
+        li
+          span.orders-control-label Дата
+          label.orders-control
+            input(type="button")
+            span.orders-control__text 2020-05-10
+
+        li
+          label.orders-control
+            input(type="button")
+            img.orders-control__icon(src="assets/img/more.svg")
+
+
+      .orders-selects-mobile
+        select
+          option(value="Двухместный номер с 1 кроватью" selected) Двухместный номер с 1 кроватью
+          option(value="Двухместный номер с 2 кроватями") Двухместный номер с 2 кроватями
+
+        select
+          each roomType, i in roomTypes
+            - var isFirst = i === 0;
+            option(value=roomType selected=isFirst)= roomType
+
+
