@@ -1,3 +1,7 @@
+.orders-content {
+  max-width: 100%;
+}
+
 /* Table */
 .orders-table {
   box-sizing: content-box;
@@ -21,10 +25,7 @@
   max-width: calc(100% - 128px);
   overflow: auto;
   margin-left: -1px;
-}
-
-.orders-content {
-  max-width: 100%;
+  position: relative;
 }
 
 .orders-content ul {
@@ -33,7 +34,7 @@
   list-style: none;
 }
 
-/* Cell */
+/* Category */
 .orders-category li,
 .orders-category {
   border-style: solid;
@@ -56,6 +57,7 @@
   padding: 0 16px;
 }
 
+/* Cell */
 .cell {
   min-width: 40px;
   min-width: 40px;
@@ -143,6 +145,7 @@ ul.orders-table__months {
   display: flex;
 }
 .orders-table__row-title {
+  z-index: 1;
   position: absolute;
   top: 0;
   left: 16px;
@@ -150,6 +153,7 @@ ul.orders-table__months {
   font-size: 14px;
   color: #333333;
 }
+
 .orders-table__cells-row--title {
   line-height: 40px;
   position: relative;
@@ -167,4 +171,79 @@ ul.orders-table__months {
 
 .orders-table__cells .cell {
   border-width: 0 1px 1px 0;
+  position: relative;
+}
+
+.orders-table__cells-row--title .cell::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -1px;
+
+  width: calc(100% + 1px);
+  height: 100%;
+
+  background: #f8f8f8;
+}
+
+.order-cell-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(104, 147, 198, 0.1);
+  transition: opacity 0.25s ease;
+  opacity: 0;
+
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
+.order-cell-btn:hover {
+  opacity: 1;
+}
+
+/* Orders items */
+.orders-item {
+  background: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  box-sizing: border-box;
+
+  position: absolute;
+  top: calc(var(--top) * 40px + (var(--top) * 1px) + 90px + 3px);
+  left: calc(var(--left) * 40px + (var(--left) * 1px) + 3px);
+  width: calc(var(--width) * 40px);
+  height: 36px;
+}
+
+.orders-item__inner {
+  background: var(--color);
+  border-radius: 55px;
+  transition: opacity 0.25s ease;
+
+  height: 36px;
+  width: calc(var(--width) * 40px);
+  padding: 0 16px;
+
+  font-size: 12px;
+  line-height: 36px;
+  color: #ffffff;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.orders-item:hover .orders-item__inner {
+  opacity: 0.8;
 }

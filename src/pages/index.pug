@@ -56,6 +56,44 @@ block content
       return [...accum, ...month.days];
     }, []);
 
+    var orders = [
+      {
+        color: '#6A93C6',
+        text: '454512 Иван Тимошенко',
+        width: 3,
+        left: 0,
+        top: 2
+      },
+      {
+        color: '#6A93C6',
+        text: '19984 Елизавета Ивановна',
+        width: 4,
+        left: 4,
+        top: 3
+      },
+      {
+        color: '#6A93C6',
+        text: '19984 Елизавета Ивановна, +7 999 287 45 81',
+        width: 6,
+        left: 8,
+        top: 5
+      },
+      {
+        color: '#6AC689',
+        text: '19984 Елизавета Ивановна, +7 999 287 45 81',
+        width: 5,
+        left: 33,
+        top: 4
+      },
+      {
+        color: '#6AC689',
+        text: '19984 Елизавета Ивановна, +7 999 287 45 81',
+        width: 10,
+        left: 3,
+        top: 12
+      }
+    ];
+
   .orders-page
     aside.orders-aside
       nav.nav
@@ -135,4 +173,17 @@ block content
                   each day, j in allDays
                     .cell(class={ 'cell--grey': isTitle})
                       .cell__inner
+                        if !isTitle
+                          button.order-cell-btn(type="button")
+                            img(src="assets/img/plus-circle.svg" alt="Plus")
+
+            .orders-list
+              each order in orders
+                button.orders-item(style={
+                  '--color': order.color,
+                  '--width': order.width,
+                  '--top': order.top,
+                  '--left': order.left
+                } type="button")
+                  .orders-item__inner= order.text
 
