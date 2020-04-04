@@ -10,6 +10,11 @@
     order: -1;
   }
 
+  .bus > .bus-label {
+    width: 120px;
+    text-align: center;
+  }
+
   .bus-container {
     margin-top: 16px;
     width: 100%;
