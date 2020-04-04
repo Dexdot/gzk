@@ -11,7 +11,7 @@
 }
 
 .orders-container {
-  flex: 1;
+  width: calc(100% - 202px);
 }
 
 .orders-title {
@@ -53,6 +53,7 @@
   display: flex;
   flex-wrap: wrap;
   margin-left: -8px;
+  margin-bottom: 24px;
 }
 
 .orders-controls > li {
@@ -111,6 +112,7 @@
   max-height: 100%;
 }
 
+/* Adaptive */
 @media (min-width: 992px) {
   .orders-selects-mobile {
     display: none;

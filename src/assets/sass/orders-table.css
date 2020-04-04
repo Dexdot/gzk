@@ -1,0 +1,170 @@
+/* Table */
+.orders-table {
+  box-sizing: content-box;
+  display: flex;
+}
+
+.orders-table__aside {
+  font-size: 12px;
+  min-width: 128px;
+  width: 128px;
+}
+
+.orders-table__aside-cell {
+  border-style: solid;
+  border-color: #dbdce0;
+  border-width: 1px 1px 0 1px;
+  height: 89px;
+}
+
+.orders-table__content {
+  max-width: calc(100% - 128px);
+  overflow: auto;
+  margin-left: -1px;
+}
+
+.orders-content {
+  max-width: 100%;
+}
+
+.orders-content ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* Cell */
+.orders-category li,
+.orders-category {
+  border-style: solid;
+  border-color: #dbdce0;
+}
+
+.orders-category {
+  border-width: 1px 1px 0 1px;
+}
+
+.orders-category li {
+  border-width: 0 0 1px 0;
+}
+
+.orders-category:not(:last-child) li:last-child {
+  border-bottom: 0;
+}
+
+.orders-category .cell {
+  padding: 0 16px;
+}
+
+.cell {
+  min-width: 40px;
+  min-width: 40px;
+  height: 40px;
+  line-height: 40px;
+}
+
+.cell--grey {
+  background: #f8f8f8;
+}
+
+.cell__inner {
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Months */
+.orders-table__months {
+  display: flex;
+}
+ul.orders-table__months {
+  padding-left: 1px;
+}
+
+.orders-table__month-name {
+  border-width: 1px 1px 0 0;
+  border-style: solid;
+  border-color: #dbdce0;
+
+  font-size: 12px;
+  color: #333333;
+
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.orders-table__month-days {
+  display: flex;
+}
+
+.orders-table__month-day {
+  height: 56px;
+  width: 40px;
+  text-align: center;
+}
+
+.orders-table__month-day span {
+  font-size: 10px;
+  line-height: 14px;
+  color: #acacac;
+}
+
+.orders-table__month-day b {
+  display: block;
+  color: #333333;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.orders-table__month-days,
+.orders-table__month-day {
+  border-style: solid;
+  border-color: #dbdce0;
+}
+
+.orders-table__month-days {
+  border-width: 1px 0 0 0;
+}
+
+.orders-table__month-day {
+  border-width: 0 1px 1px 0;
+}
+
+/* Cells */
+.orders-table__cells {
+  display: flex;
+  flex-wrap: wrap;
+}
+.orders-table__cells-row {
+  display: flex;
+}
+.orders-table__row-title {
+  position: absolute;
+  top: 0;
+  left: 16px;
+
+  font-size: 14px;
+  color: #333333;
+}
+.orders-table__cells-row--title {
+  line-height: 40px;
+  position: relative;
+}
+
+.orders-table__cells,
+.orders-table__cells .cell {
+  border-style: solid;
+  border-color: #dbdce0;
+}
+
+.orders-table__cells {
+  border-width: 0 0 0 1px;
+}
+
+.orders-table__cells .cell {
+  border-width: 0 1px 1px 0;
+}

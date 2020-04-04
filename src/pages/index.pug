@@ -31,6 +31,31 @@ block content
       'Стандарт 5'
     ];
 
+    var rooms = [
+      { title: 'Двухместный номер с 1 кроватью', list: roomTypes },
+      { title: 'Двухместный номер с 2 кроватями', list: roomTypes }
+    ];
+
+    var roomsNames = rooms.reduce((accum, room) => {
+      const list = room.list.map(el => ({ text: el }))
+
+      return [...accum, { text: room.title, title: true }, ...list];
+    }, []);
+
+    var days = [];
+    for (var x = 0; x < 31; x++) {
+      days.push({ name: 'вт', num: x + 1 })
+    };
+
+    var months = [
+      { name: 'Май 2020 г.', days },
+      { name: 'Июнь 2020 г.', days: days.slice(0, -1) }
+    ];
+
+    var allDays = months.reduce((accum, month) => {
+      return [...accum, ...month.days];
+    }, []);
+
   .orders-page
     aside.orders-aside
       nav.nav
@@ -62,7 +87,6 @@ block content
             input(type="button")
             img.orders-control__icon(src="assets/img/more.svg")
 
-
       .orders-selects-mobile
         select
           option(value="Двухместный номер с 1 кроватью" selected) Двухместный номер с 1 кроватью
@@ -73,4 +97,42 @@ block content
             - var isFirst = i === 0;
             option(value=roomType selected=isFirst)= roomType
 
+      .orders-content
+        section.orders-table
+          .orders-table__aside
+            .orders-table__aside-cell
+            each room in rooms
+              ul.orders-category
+                li
+                  .cell.cell--grey
+                    .cell__inner
+                each category in room.list
+                  li
+                    .cell
+                      .cell__inner= category
+
+          .orders-table__content
+            ul.orders-table__months
+              each month in months
+                li
+                  .orders-table__month
+                    .orders-table__month-name= month.name
+                  ul.orders-table__month-days
+                    each day in month.days
+                      .orders-table__month-day
+                        span= day.name
+                        b= day.num
+
+            .orders-table__cells
+              each roomName, i in roomsNames
+                - var isTitle = roomName.title;
+
+
+                .orders-table__cells-row(class={ 'orders-table__cells-row--title': isTitle})
+                  if isTitle
+                    .orders-table__row-title= roomName.text
+
+                  each day, j in allDays
+                    .cell(class={ 'cell--grey': isTitle})
+                      .cell__inner
 
