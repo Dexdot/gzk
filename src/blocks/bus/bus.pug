@@ -1,0 +1,75 @@
+mixin bus-row
+  ul.bus-row
+    li
+      p.bus-label Ряд
+      
+    - for (var i = 0; i < 13; i++)
+      li
+        p.bus-row-num= i+1
+
+.container
+  h2.title Загрузка транспорта. Схема автобуса
+
+  ul.bus-legend
+    li
+      .bus-legend__item.bus-legend__item--taken
+        .bus-legend__rect
+        p Место занято
+    li
+      .bus-legend__item.bus-legend__item--free
+        .bus-legend__rect
+        p Место свободно
+
+  section.bus
+    p.bus-label Правая сторона
+
+    .bus-container
+      +bus-row
+
+      .bus-content
+        .bus-head
+          .bus-head__item
+            span.bus-head__text.bus-bold Дверь
+          .bus-head__item
+            span.bus-head__text.bus-bold Водитель
+
+        .bus-body
+          ul.bus-places
+            - for (var i = 0; i < 46; i++)
+              - var isDoor = i === 20;
+
+              if isDoor
+                li.bus-places-item--door
+                  .bus-door
+                    p.bus-bold Дверь
+                    p.bus-bold Кухня
+
+                  ul
+                    - for (var j = 21; j <= 24; j++)
+                      li
+                        label.bus-place(type="button")
+                          input.js-place-select(value=num type="checkbox")
+                          .bus-place__text Свободное место
+                          p.bus-place__num= j
+
+              else
+                li
+                  -
+                    var isSmall = i >= 41;
+                    var isTaken = [4, 5].includes(i);
+                    var text = isTaken ? 'Занятое место' : 'Свободное место';
+
+                    var isDoorSkipped = i > 19;
+                    var num = isDoorSkipped ? i + 4 : i + 1;
+
+                  label.bus-place(class={
+                    'bus-place--taken': isTaken,
+                    'bus-place--small': isSmall,
+                  } type="button")
+                    input.js-place-select(value=num type="checkbox")
+                    .bus-place__text= text
+                    p.bus-place__num= num
+
+      +bus-row
+
+    p.bus-label Левая сторона

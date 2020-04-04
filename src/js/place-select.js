@@ -1,9 +1,17 @@
 window.addEventListener('DOMContentLoaded', () => {
-  const placesButtons = document.querySelectorAll('.js-place-select');
-  placesButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      if (!btn.classList.contains('bus-place--taken'))
-        btn.classList.toggle('bus-place--selected');
+  const placesInputs = document.querySelectorAll('.js-place-select');
+
+  placesInputs.forEach(input => {
+    const parent = input.closest('.bus-place');
+    const isTaken = parent.classList.contains('bus-place--taken');
+
+    parent.classList[input.checked && !isTaken ? 'add' : 'remove'](
+      'bus-place--selected'
+    );
+
+    input.addEventListener('change', () => {
+      if (!parent.classList.contains('bus-place--taken'))
+        parent.classList.toggle('bus-place--selected');
     });
   });
 });

@@ -1,0 +1,25 @@
+.container
+  h2.title Доступность
+
+  section.calendar-container
+    .calendar
+      .calendar-head
+        button.calendar-btn(type="button")
+          
+
+      .calendar-body
+        ul.calendar-week
+          each day in ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс']
+            li
+              p.calendar-week__text= day
+
+        ul.calendar-days
+          - for (var i = 0; i < 1; i++)
+            li.calendar-placeholder
+
+          - for (var i = 0; i < 31; i++)
+            li
+            
+
+    
+  button.calendar-clear Очистить даты
