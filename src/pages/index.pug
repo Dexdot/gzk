@@ -90,6 +90,13 @@ block content
     var orders = [
       {
         color: '#6A93C6',
+        text: '454512 Антон Тимошенко',
+        width: 4,
+        left: 57,
+        top: 17
+      },
+      {
+        color: '#6A93C6',
         text: '454512 Иван Тимошенко',
         width: 3,
         left: 0,
@@ -207,8 +214,6 @@ block content
                         if !isTitle
                           button.order-cell-btn.js-order-popup(type="button")
                             img(src="assets/img/plus-circle.svg" alt="Plus")
-                          .order-cell-popup
-                            +popup-add
 
             ul.orders-list
               each order in orders
@@ -221,5 +226,8 @@ block content
                   } type="button")
                     .orders-item__inner= order.text
 
-                  .orders-item-popup
-                    +popup-order
+            .order-cell-popup
+              +popup-add
+
+            .orders-item-popup
+              +popup-order
