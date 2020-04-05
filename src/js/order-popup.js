@@ -17,7 +17,8 @@ window.addEventListener('DOMContentLoaded', () => {
   closeBtn.addEventListener('click', closePopups);
 
   buttons.forEach(btn => {
-    const cell = btn.closest('.cell');
+    let cell = btn.closest('.cell');
+    if (!cell) cell = btn.closest('td');
 
     btn.addEventListener('click', () => {
       closePopups();

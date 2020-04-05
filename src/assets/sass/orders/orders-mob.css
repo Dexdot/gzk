@@ -1,0 +1,15 @@
+@media (max-width: 991px) {
+  .orders-selects-mobile select,
+  .orders-container {
+    width: 100%;
+  }
+
+  .orders-page {
+    padding: 56px 16px;
+  }
+
+  .orders-controls,
+  .orders-aside {
+    display: none;
+  }
+}

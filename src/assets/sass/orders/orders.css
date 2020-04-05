@@ -1,17 +1,11 @@
 .orders-page {
   display: flex;
   align-items: flex-start;
-
-  padding: 56px 4.16vw;
 }
 
 .orders-aside {
   min-width: 202px;
   width: 202px;
-}
-
-.orders-container {
-  width: calc(100% - 202px);
 }
 
 .orders-title {
@@ -112,15 +106,6 @@
   max-height: 100%;
 }
 
-/* Adaptive */
-@media (min-width: 992px) {
-  .orders-selects-mobile {
-    display: none;
-  }
-}
-
-@media (max-width: 991px) {
-  .orders-controls {
-    display: none;
-  }
+.orders-month {
+  margin-top: 24px;
 }

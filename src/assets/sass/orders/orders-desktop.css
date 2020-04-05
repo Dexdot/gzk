@@ -1,0 +1,13 @@
+@media (min-width: 992px) {
+  .orders-selects-mobile {
+    display: none;
+  }
+
+  .orders-page {
+    padding: 56px 4.16vw;
+  }
+
+  .orders-container {
+    width: calc(100% - 202px);
+  }
+}

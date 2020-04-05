@@ -30,6 +30,73 @@ mixin popup-order
       button.popup__btn Изменить
       button.popup__btn.popup__btn--reset Отменить бронь
 
+mixin orders-calendar({ month, placeholdersCount  })
+  -
+    var days = [...month.days];
+    for (var i = 0; i < placeholdersCount; i++) {
+      days.unshift({ placeholder: true });
+    }
+
+    var weeks = [];
+    var lastIndex;
+
+    days.forEach((el, i) => {
+      var index = i + 1;
+      var isEnd = index % 7 === 0;
+      if (isEnd) {
+        weeks.push(days.slice(index - 7, index));
+        lastIndex = i + 1;
+      }
+    });
+
+    weeks.push(days.slice(lastIndex));
+
+  .orders-calendar-container
+    .orders-calendar
+      .orders-calendar-head
+        .orders-calendar-head__title= month.name
+
+      .orders-calendar-body
+        table.orders-calendar-table
+          tbody
+            each week, j in weeks
+              tr
+                each day, i in week
+                  td( class={ 'orders-calendar-placeholder': day.placeholder})
+                    if !day.placeholder
+
+                      -
+                        var isStartWeek = i == 0;
+
+                        var hasOrder = !!day.order;
+                        var isStartDay = hasOrder && day.order.startDay === day.num;
+                        var isEndDay = hasOrder && day.order.endDay === day.num;
+                        var isOrderDay = hasOrder && !isStartDay && !isEndDay;
+                        var color = hasOrder && day.order.color ? day.order.color : '#6a93c6'
+                    
+                      .orders-calendar-day(class={
+                        'orders-calendar-day--order': isOrderDay,
+                        'orders-calendar-day--start': isStartDay,
+                        'orders-calendar-day--end': isEndDay
+                      } style={ '--background': color })
+                        p.orders-calendar-day__num= day.num
+
+                        if !hasOrder
+                          button.order-cell-btn.js-order-popup(type="button")
+                            img(src="assets/img/plus-circle.svg" alt="Plus")
+
+                        if isStartDay
+                          .orders-calendar-day__text.orders-calendar-day__text--max-width(style={ '--width': week.length - i })= day.order.text
+
+                        if isOrderDay && day.num == 1
+                          .orders-calendar-day__text.orders-calendar-day__text--max-width(style={ '--width': week.length - i })= day.order.text
+
+                        if isOrderDay && isStartWeek
+                          .orders-calendar-day__text.orders-calendar-day__text--max-width(style={ '--width': 2 })= day.order.text
+
+
+
+
 block content
 
   -
@@ -132,6 +199,44 @@ block content
       }
     ];
 
+
+    var order454512 = {
+      startDay: 6, endDay: 9, days: 4, text: '454512 Иван Тимошенко'
+    };
+    var order198456 = {
+      startDay: 30, endDay: 3, days: 5, text: '198456 Константин Перепечко'
+    };
+    var order123123 = {
+      startDay: 15, endDay: 18, days: 4, text: '123123 Антонина Васильевна', color: '#6AC689'
+    };
+
+    var mayDays = [];
+    for (var x = 0; x < 31; x++) {
+      var day = { num: x + 1 };
+      if (x >= 5 && x <= 8) day.order = order454512;
+      if (x >= 29 && x <= 30) day.order = order198456;
+      mayDays.push(day)
+    };
+
+    var juneDays = [];
+    for (var x = 0; x < 30; x++) {
+      var day = { num: x + 1 };
+      if (x >= 0 && x <= 2) day.order = order198456;
+      if (x >= 14 && x <= 17) day.order = order123123;
+      juneDays.push(day)
+    };
+
+    var ordersMonths = [
+      {
+        name: 'Май 2020 г.',
+        days: mayDays
+      },
+      {
+        name: 'Июнь 2020 г.',
+        days: juneDays
+      }
+    ];
+
   .orders-page
     aside.orders-aside
       nav.nav
@@ -231,3 +336,10 @@ block content
 
             .orders-item-popup
               +popup-order
+
+        section.orders-months
+          .orders-month
+            +orders-calendar({ month: ordersMonths[0], placeholdersCount: 0})
+          .orders-month
+            +orders-calendar({ month: ordersMonths[1], placeholdersCount: 3})
+
