@@ -1,3 +1,4 @@
+import '~/js/css-props';
 import '~/js/modal';
 import '~/js/place-select';
 import '~/js/day-select';
