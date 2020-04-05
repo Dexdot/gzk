@@ -1,4 +1,5 @@
 @media (min-width: 992px) {
+  .orders-months,
   .orders-selects-mobile {
     display: none;
   }

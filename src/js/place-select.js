@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const placesInputs = document.querySelectorAll('.js-place-select');
 
   placesInputs.forEach(input => {

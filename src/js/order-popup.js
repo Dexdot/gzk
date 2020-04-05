@@ -8,7 +8,7 @@ const closePopups = () => {
   });
 };
 
-window.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const buttons = document.querySelectorAll('.js-order-popup');
   const popup = document.querySelector('.order-cell-popup');
   const contentHeight = popup.offsetHeight;
@@ -47,7 +47,7 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-window.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const buttons = document.querySelectorAll('.js-show-order-popup');
   const popup = document.querySelector('.orders-item-popup');
   const contentHeight = popup.offsetHeight;

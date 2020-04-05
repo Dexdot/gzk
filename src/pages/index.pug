@@ -81,8 +81,11 @@ mixin orders-calendar({ month, placeholdersCount  })
                       } style={ '--background': color })
                         p.orders-calendar-day__num= day.num
 
+                        if hasOrder
+                          button.orders-calendar-day__btn(data-modal-open="order" type="button")
+
                         if !hasOrder
-                          button.order-cell-btn.js-order-popup(type="button")
+                          button.order-cell-btn(data-modal-open="add-order" type="button")
                             img(src="assets/img/plus-circle.svg" alt="Plus")
 
                         if isStartDay
@@ -93,7 +96,6 @@ mixin orders-calendar({ month, placeholdersCount  })
 
                         if isOrderDay && isStartWeek
                           .orders-calendar-day__text.orders-calendar-day__text--max-width(style={ '--width': 2 })= day.order.text
-
 
 
 
@@ -236,6 +238,41 @@ block content
         days: juneDays
       }
     ];
+
+
+  section.modal.modal--add-order(data-modal="add-order")
+    button.modal__overlay(type="button" data-modal-close="add-order")
+    
+    .modal__container(type="button" data-modal-close="add-order")
+      button.popup__close
+        img(src="assets/img/close.svg" alt="Close")
+
+      h2.popup__title Добавление бронирования
+      form.popup__form
+        p Количество ночей
+        input.popup__input(type="text" placeholder="0")
+        p ФИО
+        input.popup__input(type="text" placeholder="ФИО гостя")
+        p Телефон
+        input.popup__input(type="text" placeholder="+7 (___) ___ - __ - __")
+        button.popup__btn Добавить
+
+  section.modal.modal--order(data-modal="order")
+    button.modal__overlay(type="button" data-modal-close="order")
+
+    .modal__container
+      button.popup__close(type="button" data-modal-close="order")
+        img(src="assets/img/close.svg" alt="Close")
+
+      .popup-order
+        img(src="assets/img/face.png" alt="Face")
+        b #19984
+        p Елизавета Иванова
+        p +7 999 214 87 87
+
+        button.popup__btn Изменить
+        button.popup__btn.popup__btn--reset Отменить бронь
+
 
   .orders-page
     aside.orders-aside

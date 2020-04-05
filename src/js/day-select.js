@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const daysInputs = document.querySelectorAll('.js-day-select');
 
   daysInputs.forEach(input => {
