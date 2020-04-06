@@ -243,8 +243,8 @@ block content
   section.modal.modal--add-order(data-modal="add-order")
     button.modal__overlay(type="button" data-modal-close="add-order")
     
-    .modal__container(type="button")
-      button.popup__close
+    .modal__container
+      button.popup__close(type="button" data-modal-close="add-order")
         img(src="assets/img/close.svg" alt="Close")
 
       h2.popup__title Добавление бронирования
